@@ -8,9 +8,15 @@ const app = new Vue({
         url: window.location.href
     },
     computed: {
+        host: function () {
+            var urlSplit = this.url.split('/');
+            return urlSplit[0] + '//' + urlSplit[2] + jekyllBaseUrl;
+        },
         baseurl: function () {
+            console.log(this.host);
+
             var maxLength = ((idx = this.url.indexOf('?')) > 0) ? idx : this.url.length;
-            return this.url.substr(0, maxLength).replace(baseURL, '');
+            return this.url.substr(0, maxLength).replace(this.host, '');
         },
         name: function() {
             var chunks = this.baseurl.split('/');
