@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<div id="app">{% raw %}
+
+    <p>Route: {{ baseurl }}</p>
+    <p>Hello {{ name }}!</p>
+
+{% endraw %}</div>
+
+<script>
+    var baseURL = '{{ site.url }}{{ site.baseurl }}';
+</script>
+<script src="https://unpkg.com/vue"></script>
+<script src="{{ 'js/index.js' | absolute_url }}"></script>
